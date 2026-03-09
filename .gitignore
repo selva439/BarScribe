@@ -30,10 +30,14 @@ yarn-error.*
 .DS_Store
 *.pem
 
-# local env files
+# local env files — API keys, secrets
 .env
+.env.*
 .env.local
 .env*.local
+
+# EAS credentials & secrets
+eas.json
 
 # typescript
 *.tsbuildinfo
@@ -41,3 +45,23 @@ yarn-error.*
 # generated native folders
 /ios
 /android
+
+# Claude Code
+.claude/
+
+# Keystore / signing
+*.keystore
+google-services.json
+GoogleService-Info.plist
+
+# App Store credentials
+AuthKey_*.p8
+*.cer
+*.certSigningRequest
+
+# IDE
+.vscode/
+.idea/
+
+# Test coverage
+coverage/

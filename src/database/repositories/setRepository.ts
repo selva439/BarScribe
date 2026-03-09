@@ -100,6 +100,27 @@ export async function getLastPerformance(
   );
 }
 
+export async function deleteSetsForExercise(
+  db: SQLiteDatabase,
+  workoutId: number,
+  exerciseId: number
+): Promise<void> {
+  // Clear any PR references to these sets first (FK constraint)
+  await db.runAsync(
+    `UPDATE personal_records SET workout_set_id = NULL
+     WHERE workout_set_id IN (
+       SELECT id FROM workout_sets WHERE workout_id = ? AND exercise_id = ?
+     )`,
+    workoutId,
+    exerciseId
+  );
+  await db.runAsync(
+    'DELETE FROM workout_sets WHERE workout_id = ? AND exercise_id = ?',
+    workoutId,
+    exerciseId
+  );
+}
+
 export async function getSetById(
   db: SQLiteDatabase,
   id: number

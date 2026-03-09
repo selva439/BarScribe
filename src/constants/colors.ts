@@ -1,4 +1,4 @@
-// IronLog Color System — Dark + Iron Red theme (user confirmed)
+// BarScribe Color System — Dark + Iron Red theme (user confirmed)
 export const Colors = {
   // Backgrounds
   background: '#0F0F0F',

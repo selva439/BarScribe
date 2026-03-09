@@ -127,13 +127,22 @@ export default function PRsDashboardScreen({ navigation }: Props) {
           </Card>
         )}
 
-        <TouchableOpacity
-          style={styles.settingsLink}
-          onPress={() => navigation.navigate('Settings')}
-        >
-          <Ionicons name="settings-outline" size={16} color={Colors.textMuted} />
-          <Text style={styles.settingsText}>Settings</Text>
-        </TouchableOpacity>
+        <View style={styles.bottomLinks}>
+          <TouchableOpacity
+            style={styles.settingsLink}
+            onPress={() => navigation.navigate('TrainingGuide')}
+          >
+            <Ionicons name="book-outline" size={16} color={Colors.textMuted} />
+            <Text style={styles.settingsText}>Training Guide</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.settingsLink}
+            onPress={() => navigation.navigate('Settings')}
+          >
+            <Ionicons name="settings-outline" size={16} color={Colors.textMuted} />
+            <Text style={styles.settingsText}>Settings</Text>
+          </TouchableOpacity>
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
@@ -164,6 +173,7 @@ const styles = StyleSheet.create({
   prRowWeight: { color: Colors.text, fontSize: 15, fontWeight: '600' },
   prRowDate: { color: Colors.textMuted, fontSize: 12 },
   prRowE1RM: { color: Colors.textSecondary, fontSize: 13 },
+  bottomLinks: { flexDirection: 'row', justifyContent: 'center', gap: 24 },
   settingsLink: { flexDirection: 'row', alignItems: 'center', gap: 6, justifyContent: 'center', paddingVertical: 8 },
   settingsText: { color: Colors.textMuted, fontSize: 14 },
 });

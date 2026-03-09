@@ -36,8 +36,11 @@ export async function initRevenueCat(): Promise<void> {
 }
 
 export async function checkIsProEntitlement(): Promise<boolean> {
+  // Always grant Pro in dev mode — RevenueCat only works in production builds
+  if (__DEV__) return true;
+
   const RC = await loadPurchases();
-  if (!RC) return __DEV__; // In dev/Expo Go, grant Pro access
+  if (!RC) return false;
 
   try {
     const customerInfo = await RC.getCustomerInfo();

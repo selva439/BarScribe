@@ -27,7 +27,7 @@ export default function SettingsScreen() {
           <Text style={styles.sectionTitle}>Subscription</Text>
           <View style={styles.row}>
             <View>
-              <Text style={styles.rowLabel}>IronLog Pro</Text>
+              <Text style={styles.rowLabel}>BarScribe Pro</Text>
               <Text style={styles.rowSub}>{isPro ? 'Active' : '$4.99/month · 7-day trial'}</Text>
             </View>
             {isPro ? (
@@ -116,7 +116,7 @@ export default function SettingsScreen() {
           <TouchableOpacity
             onPress={() =>
               Alert.alert(
-                'IronLog',
+                'BarScribe',
                 'Built for powerlifters. Train hard, lift heavy.'
               )
             }

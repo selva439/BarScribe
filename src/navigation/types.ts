@@ -12,6 +12,7 @@ export type RootStackParamList = {
     currentSetIndex: number;
   };
   SessionReview: { workoutId: number };
+  WorkoutSummary: { workoutId: number };
 };
 
 // ─── Bottom Tab Navigator ────────────────────────────────────────────────────
@@ -51,4 +52,5 @@ export type MeetPrepStackParamList = {
 export type ProfileStackParamList = {
   PRsDashboard: undefined;
   Settings: undefined;
+  TrainingGuide: undefined;
 };

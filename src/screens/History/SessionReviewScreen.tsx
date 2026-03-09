@@ -5,6 +5,7 @@ import {
   ScrollView,
   StyleSheet,
   SafeAreaView,
+  TouchableOpacity,
 } from 'react-native';
 import { type NativeStackScreenProps } from '@react-navigation/native-stack';
 import { useSQLiteContext } from 'expo-sqlite';
@@ -25,7 +26,7 @@ interface GroupedExercise {
   sets: WorkoutSet[];
 }
 
-export default function SessionReviewScreen({ route }: Props) {
+export default function SessionReviewScreen({ route, navigation }: Props) {
   const { workoutId } = route.params;
   const db = useSQLiteContext();
   const { settings } = useSettings();
@@ -109,6 +110,18 @@ export default function SessionReviewScreen({ route }: Props) {
             <Text style={styles.notesText}>{workout.notes}</Text>
           </Card>
         )}
+
+        {/* Workout Summary button */}
+        {completedSets.length > 0 && (
+          <TouchableOpacity
+            style={styles.summaryBtn}
+            onPress={() => navigation.navigate('WorkoutSummary', { workoutId })}
+            activeOpacity={0.8}
+          >
+            <Ionicons name="stats-chart" size={18} color={Colors.accent} />
+            <Text style={styles.summaryBtnText}>View Workout Summary</Text>
+          </TouchableOpacity>
+        )}
       </ScrollView>
     </SafeAreaView>
   );
@@ -139,4 +152,20 @@ const styles = StyleSheet.create({
   notes: {},
   notesLabel: { color: Colors.textDisabled, fontSize: 11, fontWeight: '700', letterSpacing: 1, marginBottom: 6 },
   notesText: { color: Colors.textSecondary, fontSize: 14, lineHeight: 20 },
+  summaryBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 8,
+    paddingVertical: 14,
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: Colors.accent,
+    backgroundColor: Colors.accentMuted,
+  },
+  summaryBtnText: {
+    color: Colors.accent,
+    fontSize: 15,
+    fontWeight: '700',
+  },
 });

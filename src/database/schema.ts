@@ -2,7 +2,7 @@
 
 export const DB_SCHEMA = `
 PRAGMA journal_mode = WAL;
-PRAGMA foreign_keys = ON;
+-- foreign_keys is managed by initDb() after cleanup
 
 CREATE TABLE IF NOT EXISTS exercises (
   id INTEGER PRIMARY KEY NOT NULL,
@@ -132,7 +132,22 @@ INSERT OR IGNORE INTO exercises (id, name, category, is_competition_lift) VALUES
   (7, 'Good Morning', 'accessory', 0),
   (8, 'Romanian Deadlift', 'accessory', 0),
   (9, 'Front Squat', 'accessory', 0),
-  (10, 'Incline Bench', 'accessory', 0);
+  (10, 'Incline Bench', 'accessory', 0),
+  (11, 'Leg Press', 'accessory', 0),
+  (12, 'Dip', 'accessory', 0),
+  (13, 'Pull-Up', 'accessory', 0),
+  (14, 'Lat Pulldown', 'accessory', 0),
+  (15, 'Cable Row', 'accessory', 0),
+  (16, 'Hip Thrust', 'accessory', 0),
+  (17, 'Leg Curl', 'accessory', 0),
+  (18, 'Pause Squat', 'accessory', 0),
+  (19, 'Pause Bench', 'accessory', 0),
+  (20, 'Sumo Deadlift', 'accessory', 0),
+  (21, 'Bulgarian Split Squat', 'accessory', 0),
+  (22, 'Tricep Pushdown', 'accessory', 0),
+  (23, 'Bicep Curl', 'accessory', 0),
+  (24, 'Face Pull', 'accessory', 0),
+  (25, 'Lateral Raise', 'accessory', 0);
 `;
 
 export const SEED_PROGRAMS = `

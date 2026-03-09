@@ -11,10 +11,11 @@ interface Props {
   sets: WorkoutSet[];
   prSetIds?: Set<number>;
   onSetPress?: (set: WorkoutSet, index: number) => void;
+  onDelete?: () => void;
   previousBest?: string; // e.g. "120kg × 5 (3 weeks ago)"
 }
 
-export function ExerciseCard({ exerciseName, sets, prSetIds, onSetPress, previousBest }: Props) {
+export function ExerciseCard({ exerciseName, sets, prSetIds, onSetPress, onDelete, previousBest }: Props) {
   const [expanded, setExpanded] = useState(true);
   const workingSets = sets.filter(s => s.is_warmup === 0);
   const warmupSets = sets.filter(s => s.is_warmup === 1);
@@ -34,11 +35,20 @@ export function ExerciseCard({ exerciseName, sets, prSetIds, onSetPress, previou
             <Text style={styles.progressText}>
               {completedCount}/{workingSets.length}
             </Text>
+            {onDelete && (
+              <TouchableOpacity
+                onPress={onDelete}
+                hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
+                style={styles.deleteBtn}
+              >
+                <Ionicons name="trash-outline" size={16} color={Colors.textMuted} />
+              </TouchableOpacity>
+            )}
             <Ionicons
               name={expanded ? 'chevron-up' : 'chevron-down'}
               size={16}
               color={Colors.textMuted}
-              style={{ marginLeft: 8 }}
+              style={{ marginLeft: 4 }}
             />
           </View>
         </View>
@@ -110,6 +120,10 @@ const styles = StyleSheet.create({
     color: Colors.textSecondary,
     fontSize: 14,
     fontWeight: '600',
+  },
+  deleteBtn: {
+    marginLeft: 12,
+    padding: 4,
   },
   previousBest: {
     color: Colors.textMuted,

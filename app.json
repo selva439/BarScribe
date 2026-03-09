@@ -1,12 +1,12 @@
 {
   "expo": {
-    "name": "IronLog",
+    "name": "BarScribe",
     "slug": "ironlog",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "dark",
-    "scheme": "ironlog",
+    "scheme": "barscribe",
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
@@ -14,34 +14,49 @@
     },
     "ios": {
       "supportsTablet": false,
-      "bundleIdentifier": "com.ironlog.app",
-      "buildNumber": "1"
+      "bundleIdentifier": "com.selva439.barscribe",
+      "buildNumber": "3",
+      "infoPlist": {
+        "NSPhotoLibraryUsageDescription": "BarScribe needs access to your photos to set a profile picture for workout share cards.",
+        "NSCameraUsageDescription": "BarScribe needs camera access to take a profile photo for workout share cards.",
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
-      "package": "com.ironlog.app",
-      "versionCode": 1,
+      "package": "com.selva439.barscribe",
+      "versionCode": 3,
       "adaptiveIcon": {
         "backgroundColor": "#0F0F0F",
-        "foregroundImage": "./assets/adaptive-icon.png"
-      }
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.VIBRATE",
+        "android.permission.RECORD_AUDIO"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
+      "expo-notifications",
+      "expo-sqlite",
+      "expo-sharing",
       [
-        "expo-notifications",
+        "expo-image-picker",
         {
-          "icon": "./assets/notification-icon.png",
-          "color": "#E8341C"
+          "photosPermission": "BarScribe needs access to your photos to set a profile picture for workout share cards.",
+          "cameraPermission": "BarScribe needs camera access to take a profile photo for workout share cards."
         }
-      ],
-      "expo-sqlite"
+      ]
     ],
     "extra": {
       "eas": {
-        "projectId": "your-eas-project-id"
+        "projectId": "44ad9cc0-c661-4f26-9a5b-e9c83a8a72ac"
       }
-    }
+    },
+    "owner": "selva439"
   }
 }

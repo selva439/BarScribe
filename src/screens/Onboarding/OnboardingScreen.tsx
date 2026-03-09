@@ -32,8 +32,8 @@ export default function OnboardingScreen({ navigation }: Props) {
       <StatusBar barStyle="light-content" />
 
       <View style={styles.hero}>
-        <Text style={styles.logo}>IRON</Text>
-        <Text style={styles.logoAccent}>LOG</Text>
+        <Text style={styles.logo}>BAR</Text>
+        <Text style={styles.logoAccent}>SCRIBE</Text>
         <Text style={styles.tagline}>The powerlifter's training companion</Text>
       </View>
 

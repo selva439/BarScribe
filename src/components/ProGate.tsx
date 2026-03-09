@@ -39,7 +39,7 @@ export function ProGate({ children, feature, overlay = false }: Props) {
         </View>
       </View>
 
-      <Text style={styles.headline}>IronLog Pro</Text>
+      <Text style={styles.headline}>BarScribe Pro</Text>
       <Text style={styles.subheadline}>
         {feature ? `${feature} requires Pro` : 'Unlock your full potential'}
       </Text>

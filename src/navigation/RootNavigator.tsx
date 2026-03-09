@@ -5,6 +5,7 @@ import { Colors } from '../constants/colors';
 import TabNavigator from './TabNavigator';
 import LogSetScreen from '../screens/LogSet/LogSetScreen';
 import SessionReviewScreen from '../screens/History/SessionReviewScreen';
+import WorkoutSummaryScreen from '../screens/History/WorkoutSummaryScreen';
 import OnboardingScreen from '../screens/Onboarding/OnboardingScreen';
 import { useSettings } from '../contexts/SettingsContext';
 
@@ -42,6 +43,17 @@ export default function RootNavigator() {
           headerStyle: { backgroundColor: Colors.surface },
           headerTintColor: Colors.text,
           headerTitle: 'Session Review',
+        }}
+      />
+      <Stack.Screen
+        name="WorkoutSummary"
+        component={WorkoutSummaryScreen}
+        options={{
+          presentation: 'modal',
+          headerShown: true,
+          headerStyle: { backgroundColor: Colors.surface },
+          headerTintColor: Colors.text,
+          headerTitle: 'Workout Summary',
         }}
       />
     </Stack.Navigator>

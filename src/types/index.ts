@@ -157,3 +157,24 @@ export interface TrainingMaxes {
 
 // Keyed by exercise name
 export type AllPRs = Record<string, PersonalRecord>;
+
+// ─── Muscle & Scoring Types ─────────────────────────────────────────────────
+
+export type MuscleId =
+  | 'quads' | 'hamstrings' | 'glutes' | 'calves' | 'hip_flexors'
+  | 'chest'
+  | 'front_delts' | 'side_delts' | 'rear_delts'
+  | 'lats' | 'upper_back' | 'traps' | 'lower_back'
+  | 'triceps' | 'biceps' | 'forearms'
+  | 'core';
+
+export interface WorkoutScore {
+  volumeLoad: number;           // Σ(weight × reps)
+  inol: number;                 // session total INOL
+  muscleGroupVolume: Partial<Record<MuscleId, number>>;
+  overallScore: number;         // 0–100
+  classification: string;       // 'Light Recovery' | 'Moderate' | 'Hard' | 'Maximum Effort'
+  setsCompleted: number;
+  exerciseCount: number;
+  prsHit: number;
+}
